@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th='http://www.thymeleaf.org/'>
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+    <h1 th:text="${'Welcome ' + user.username + ' to your page!'}"></h1>
+
+    <label><a th:href="@{/}">Spa Selection</a></label>
+
+    <h2>All My Users</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>User Name</th>
+                <th>User Detail</th>
+            </tr>
+        </thead>
+        <tr th:each="user : ${users}" >
+            <td th:text="${user.username}">Username</td>
+            <td><a th:href="@{user/details/{id}(id=${user.id})}">Show</a></td>
+        </tr>
+    </table>
+
+</body>
+</html>
